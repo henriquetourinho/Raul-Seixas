@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raul Seixas | O Início, o Fim e o Meio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;400;700&family=Rye&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #ffd700; /* Dourado */
+            --bg-color: #050505;
+            --section-bg: #0f0f0f;
+            --text-color: #e0e0e0;
+            --card-border: #333;
+            --card-bg: #111;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Tipografia */
+        h1, h2, h3 {
+            font-family: 'Rye', serif;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(5, 5, 5, 0.95);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo { font-size: 1.2rem; color: #fff; font-weight: bold; }
+        
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav a { text-decoration: none; color: #aaa; font-size: 0.8rem; text-transform: uppercase; transition: 0.3s; }
+        nav a:hover { color: var(--primary-color); }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4), var(--bg-color)), url('/media/108324380-rio-de-janeiro-rj-25-10-1973-raul-seixas-cantor-trocou-o-carro-pela-bicicleta-foto-a.avif');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero-content {
+            background: rgba(0,0,0,0.75);
+            padding: 40px;
+            border: 1px solid var(--primary-color);
+            backdrop-filter: blur(5px);
+            max-width: 800px;
+            animation: fadeIn 2s ease;
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
+        }
+
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; text-shadow: 2px 2px 0 #000; }
+        .hero p { font-family: 'Cinzel', serif; font-size: 1.2rem; color: var(--text-color); margin-bottom: 15px; }
+        
+        .raul-signature {
+            font-size: 1.1rem;
+            color: #fff; 
+            font-family: 'Montserrat', sans-serif;
+            margin-top: -10px;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .btn-hero {
+            padding: 12px 30px;
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .btn-hero:hover { background: var(--primary-color); color: #000; box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
+
+        /* Divisor */
+        .quote-divider {
+            padding: 60px 20px;
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: #888;
+            background: #000;
+            font-style: italic;
+        }
+        .quote-divider span { color: var(--primary-color); }
+
+        /* Biografia - O Profeta do Rock (Sem chave, layout centralizado) */
+        .bio-section {
+            padding: 100px 50px;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://novabrasilfm.com.br/app/uploads/2023/01/raul-seixas-divulgacao-curiosidades.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center; /* Centraliza o conteúdo */
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+        }
+
+        .bio-text { 
+            max-width: 800px; /* Largura máxima do conteúdo */
+            margin: 0 auto; /* Centraliza o bloco de texto */
+            text-align: left; 
+        }
+        
+        .bio-text h2 { 
+            display: inline-block; /* Permite o border-left no h2, mas o mantém centralizado no pai */
+            font-size: 2.5rem; 
+            margin-bottom: 20px; 
+            border-left: 5px solid var(--primary-color); 
+            padding-left: 20px; 
+            text-shadow: 0 0 10px rgba(0,0,0,0.8); 
+        }
+        .bio-text p { font-size: 1.1rem; color: #f0f0f0; text-shadow: 1px 1px 2px rgba(0,0,0,0.8); }
+
+
+        /* Sociedade Alternativa (O Reino de Kapper) - Agora unificada */
+        .sociedade-section {
+            padding: 100px 50px;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://imagens.ebc.com.br/cq5CUatyqX3gdo0EEabVKw0ayw0=/1170x700/smart/https://agenciabrasil.ebc.com.br/sites/default/files/thumbnails/image/2025/06/27/raul_seixas01.jpg?itok=1mem7bx6');
+            background-size: cover;
+            background-position: center top;
+            background-attachment: fixed;
+            text-align: center;
+            border-top: 5px double var(--primary-color);
+            border-bottom: 5px double var(--primary-color);
+        }
+        
+        .sociedade-text-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left; 
+        }
+
+        .sociedade-section h2 {
+            font-family: 'Rye', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-shadow: 0 0 10px rgba(0,0,0,0.9);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 20px;
+            display: inline-block;
+        }
+
+        .manifesto-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            color: #f0f0f0;
+            line-height: 1.8;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            margin-bottom: 20px;
+        }
+        
+        .manifesto-text strong {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            display: block;
+            margin: 20px 0;
+            font-style: italic;
+            text-align: center; /* Centraliza a Lei de Thelema */
+        }
+        /* FIM SOCIEDADE ALTERNATIVA */
+
+        /* Discografia */
+        .discography { padding: 100px 20px; background: var(--bg-color); }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 3rem; margin-bottom: 10px; }
+        .section-header p { color: #666; font-family: 'Cinzel', serif; }
+
+        .albums-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .album-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 25px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .album-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+        }
+
+        .album-header { text-align: center; margin-bottom: 15px; }
+
+        .album-cover-container {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 1px solid #222;
+        }
+
+        .album-cover {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            filter: grayscale(20%);
+        }
+
+        .album-card:hover .album-cover { transform: scale(1.05); filter: grayscale(0%); }
+
+        .album-title { font-size: 1.3rem; color: #fff; margin-bottom: 5px; font-weight: bold; line-height: 1.2; }
+        .album-year { display: block; font-size: 1rem; color: var(--primary-color); font-family: 'Cinzel', serif; margin-bottom: 15px; }
+        
+        .album-desc {
+            font-size: 0.95rem;
+            color: #ccc;
+            margin-bottom: 25px;
+            font-style: italic;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        
+        .btn-listen {
+            display: block;
+            width: 100%;
+            padding: 12px 0;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #000;
+            background-color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            margin-top: auto;
+        }
+        .btn-listen:hover { background-color: #fff; color: #000; }
+
+        footer { padding: 60px 20px; background: #000; text-align: center; border-top: 1px solid #222; }
+        footer p { font-size: 0.9rem; color: #444; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 10px; padding: 15px; }
+            .hero h1 { font-size: 2.2rem; }
+            .bio-section { padding: 50px 20px; }
+            .albums-grid { grid-template-columns: 1fr; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">RAUL SEIXAS</div>
+        <nav>
+            <ul>
+                <li><a href="#historia">História</a></li>
+                <li><a href="#sociedade">Sociedade</a></li>
+                <li><a href="#discografia">Obras</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Maluco Beleza</h1>
+            <p>"Enquanto você se esforça pra ser um sujeito normal e fazer tudo igual..."</p>
+            <p class="raul-signature">"Eu não sou besta pra tirar onda de herói. Sou apenas o Maluco Beleza."</p>
+            <a href="#discografia" class="btn-hero">Ouvir a Obra</a>
+        </div>
+    </section>
+
+    <div class="quote-divider">
+        "Não diga que a vitória está perdida, se é de <span>batalhas</span> que se vive a vida."
+    </div>
+
+    <section id="historia" class="bio-section">
+        <div class="bio-text">
+            <h2>O Profeta do Rock</h2>
+            <p>
+                Raul não foi apenas um cantor. Foi um arqueólogo dos sentimentos humanos e um demolidor de certezas. Uniu o sertão com o espaço sideral, Luiz Gonzaga com Elvis Presley.
+            </p>
+            <p>
+                Sua missão não era entreter, era despertar. Fundador da <strong>Sociedade Alternativa</strong>, ele nos ensinou que a única lei verdadeira é a vontade do coração. Raul vive em cada um que ousa dizer "não" ao sistema.
+            </p>
+        </div>
+        </section>
+    
+    <div class="quote-divider">
+        "Eu sou o que sou porque eu não sou."
+    </div>
+
+    <section id="sociedade" class="sociedade-section">
+        <div class="sociedade-text-content">
+            <h2>O Reino de Kapper</h2>
+            <div class="manifesto-text">
+                <p>
+                    "Chega de velhas opiniões formadas sobre tudo. Não estamos aqui para seguir ordens, mas para criar a nossa Lei. A Lei é clara e simples, bicho. Ela está escrita no Livro de Thelema, no Livro Vermelho:
+                </p>
+                <strong>'Faze o que tu queres há de ser tudo da Lei.'</strong>
+                <p>
+                    Não somos uma ditadura, somos a anarquia organizada. Somos a chave que abre a porta para o 'Novo Aeon'. Se você se sente um ET, um marginal, um Maluco Beleza, você já faz parte da Sociedade. O nosso manifesto é a liberdade!
+                </p>
+            </div>
+        </div>
+        </section>
+
+    <div class="quote-divider">"Tente outra vez."</div>
+
+    <section id="discografia" class="discography">
+        <div class="section-header">
+            <h2>Legado Musical</h2>
+            <p>A mensagem deixada em cada disco.</p>
+        </div>
+
+        <div class="albums-grid">
+            
+            <div class="album-card">
+                <div class="album-cover-container">
+                    <img src="https://tse1.mm.bing.net/th?q=capa+album+raulzito+e+os+panteras+vinil&w=500&h=500&c=7" alt="Capa Raulzito e os Panteras" class="album-cover">
+                </div>
+                <div class="album-header">
+                    <h3 class="album-title">Raulzito e os Panteras</h3>
+                    <span class="album-year">1968</span>
+                </div>
+                <p class="album-desc">"O começo ingênuo. Eu ainda brincava de ser artista, tentando entender como a engrenagem funcionava, mas o Rock já pulsava pedindo passagem."</p>
+                <a href="https://open.spotify.com/intl-pt/album/2uuGHrq21dcBTyRZJZyDdY" target="_blank" class="btn-listen">Ouvir</a>
+            </div>
+
+            <div class="album-card">
+                <div class="album-cover-container">
+                    <img src="https://tse1.mm.bing.net/th?q=capa+album+raul+seixas+krig-ha+bandolo+vinil&w=500&h=500&c=7" alt="Capa Krig-ha, Bandolo!" class="album-cover">
+                </div>
+                <div class="album-header">
+                    <h3 class="album-title">Krig-ha, Bandolo!</h3>
+                    <span class="album-year">1973</span>
+                </div>
+                <p class="album-desc">"O grito de guerra do guerreiro. Aqui eu avisei: não sou o que vocês pensam, sou a metamorfose ambulante. O jogo tinha começado."</p>
+                <a href="https://open.spotify.com/intl-pt/album/2xRddGxRH0KdDWLNE5b0iu?si=w3tjZaiZS-KyE0UwJ3l6lQ" target="_blank" class="btn-listen">Ouvir</a>
+            </div>
+
+            <div class="album-card">
+                <div class="album-cover-container">
+                    <img src="https://tse1.mm.bing.net/th?q=capa+album+raul+seixas+gita+vinil&w=500&h=500&c=7" alt="Capa Gita" class="album-cover">
+                </div>
+                <div class="album-header">
+                    <h3 class="album-title">Gita</h3>
+                    <span class="album-year">1974</span>
+                </div>
+                <p class="album-desc">"O encontro com o Absoluto. Eu sou o início, o fim e o meio. A revelação de que Deus e o Diabo dançam juntos dentro da gente."</p>
+                <a href="https://open.spotify.com/intl-pt/track/4AtL1paTEV1AXUmj3c4GTI?si=6ec21b6436904492" target="_blank" class="btn-listen">Ouvir</a>
+            </div>
+
+            <div class="album-card">
+                <div class="album-cover-container">
+                    <img src="https://tse1.mm.bing.net/th?q=capa+album+raul+seixas+novo+aeon+vinil&w=500&h=500&c=7" alt="Capa Novo Aeon" class="album-cover">
+                </div>
+                <div class="album-header">
+                    <h3 class="album-title">Novo Aeon</h3>
+                    <span class="album-year">1975</span>
+                </div>
+                <p class="album-desc">"A pedra que rola não cria limo. É a Nova Era, o tempo da Lei de Thelema. Muitos não entenderam, mas a mensagem estava dada: Faze o que tu queres."</p>
+                <a href="https://open.spotify.com/intl-pt/album/3hgOfaE0yiMg511d0Y1JfJ?si=4H6nUKcyT5mRHes9Mrxn1A" target="_blank" class="btn-listen">Ouvir</a>
+            </div>
+
+            <div class="album-card">
+                <div class="album-cover-container">
+                    <img src="https://tse1.mm.bing.net/th?q=capa+album+raul+seixas+ha+10+mil+anos+atras+vinil&w=500&h=500&c=7" alt="Capa Há 10 Mil Anos Atrás" class="album-cover">
+                </div>
+                <div class="album-header">
+                    <h3 class="album-title">Há 10 Mil Anos Atrás</h3>
+                    <span class="album-year">1976</span>
+                </div>
+                <p class="album-desc">"A viagem pelo tempo e pelo cansaço da humanidade. Eu vi tudo, eu sei de tudo, e no fim, a gente continua buscando a mesma luz."</p>
+                <a href="https://open.spotify.com/intl-pt/track/7nJuEpX0qlpKXxUK0ioIMj" target="_blank" class="btn-listen">Ouvir</a>
+            </div>
+
+            <div class="album-card">
+                <div class="album-cover-container">
+                    <img src="https://tse1.mm.bing.net/th?q=capa+album+raul+seixas+raul+rock+seixas+vinil&w=500&h=500&c=7" alt="Capa Raul Rock Seixas" class="album-cover">
+                </div>
+                <div class="album-header">
+                    <h3 class="album-title">Raul Rock Seixas</h3>
+                    <span class="album-year">1977</span>
+                </div>
+                <p class="album-desc">"De volta ao baú. Onde tudo começou. Rock puro, cru, sem frescura. Porque antes de explicar o universo, a gente tem que balançar o esqueleto."</p>
+                <a href="https://open.spotify.com/intl-pt/album/21ADKKqpDKrwIS6jJvG1SI?si=Fh4MMMfaRmG20MzUHBEGag" target="_blank" class="btn-listen">Ouvir</a>
+            </div>
+
+            <div class="album-card">
+                <div class="album-cover-container">
+                    <img src="https://tse1.mm.bing.net/th?q=capa+album+raul+seixas+o+dia+em+que+a+terra+parou+vinil&w=500&h=500&c=7" alt="Capa O Dia em que a Terra Parou" class="album-cover">
+                </div>
+                <div class="album-header">
+                    <h3 class="album-title">O Dia em que a Terra Parou</h3>
+                    <span class="album-year">1977</span>
+                </div>
+                <p class="album-desc">"Um sonho lúcido. O dia em que a máquina travou e o silêncio gritou mais alto que a cidade. O Maluco Beleza nasceu aqui, aceitando a própria loucura."</p>
+                <a href="https://open.spotify.com/intl-pt/track/5kNCog1amNsI8z2iD5634p" target="_blank" class="btn-listen">Ouvir</a>
+            </div>
+
+            <div class="album-card">
+                <div class="album-cover-container">
+                    <img src="https://tse1.mm.bing.net/th?q=capa+album+raul+seixas+mata+virgem+vinil&w=500&h=500&c=7" alt="Capa Mata Virgem" class="album-cover">
+                </div>
+                <div class="album-header">
+                    <h3 class="album-title">Mata Virgem</h3>
+                    <span class="album-year">1978</span>
+                </div>
+                <p class="album-desc">"O recolhimento. Às vezes é preciso ir pro mato, sair da cidade, pra ouvir o que as vozes de dentro estão gritando."</p>
+                <a href="https://open.spotify.com/intl-pt/track/3mXGZh54ASwsnKOIm5EcwV?si=ffb891bff4614e42"  target="_blank" class="btn-listen">Ouvir</a>
+            </div>
+
+            <div class="album-card">
+                <div class="album-cover-container">
+                    <img src="https://tse1.mm.bing.net/th?q=capa+album+raul+seixas+por+quem+os+sinos+dobram+vinil&w=500&h=500&c=7" alt="Capa Por Quem os Sinos Dobram" class="album-cover">
+                </div>
+                <div class="album-header">
+                    <h3 class="album-title">Por Quem os Sinos Dobram</h3>
+                    <span class="album-year">1979</span>
+                </div>
+                <p class="album-desc">"Os sinos dobram por nós. A coragem de encarar o fim e o mistério da existência sem medo."</p>
+                <a href="https://open.spotify.com/intl-pt/track/67un2wXjCB2SrcTYwaUHOi?si=208acdeff0d4452f"  target="_blank" class="btn-listen">Ouvir</a>
+            </div>
+
+   <div class="album-card">
+                <div class="album-cover-container">
+                    <img src="https://tse1.mm.bing.net/th?q=capa+album+raul+seixas+abre-te+sesamo+vinil&w=500&h=500&c=7" alt="Capa Abre-te Sésamo" class="album-cover">
+                </div>
+                <div class="album-header">
+                    <h3 class="album-title">Abre-te Sésamo</h3>
+                    <span class="album-year">1980</span>
+                </div>
+                <p class="album-desc">"A senha mágica. Rasgando a cortina da censura e mostrando que a chave da porta está na sua mão, não na mão do governo."</p>
+                <a href="https://open.spotify.com/intl-pt/track/6egqwuX5ZiMZ4id8Neozoq?si=ee9ef649824f499d" target="_blank" class="btn-listen">Ouvir</a>
+            </div>
+
+            <div class="album-card">
+                <div class="album-cover-container">
+                    <img src="https://tse1.mm.bing.net/th?q=capa+album+raul+seixas+metro+linha+743+vinil&w=500&h=500&c=7" alt="Capa Metrô Linha 743" class="album-cover">
+                </div>
+                <div class="album-header">
+                    <h3 class="album-title">Metrô Linha 743</h3>
+                    <span class="album-year">1984</span>
+                </div>
+                <p class="album-desc">"A paranoia urbana. O olho que tudo vê me segue no metrô. Quem é o louco afinal, eu ou eles que obedecem a tudo?"</p>
+                <a href="https://open.spotify.com/intl-pt/track/2VztMUF7QjOqJQTZECs30O?si=fb72c09f4ffa47ea" target="_blank" class="btn-listen">Ouvir</a>
+            </div>
+
+            <div class="album-card">
+                <div class="album-cover-container">
+                    <img src="https://tse1.mm.bing.net/th?q=capa+album+raul+seixas+uah+bap+lu+bap+vinil&w=500&h=500&c=7" alt="Capa Uah-Bap-Lu-Bap-Lah-Béin-Bum!" class="album-cover">
+                </div>
+                <div class="album-header">
+                    <h3 class="album-title">Uah-Bap-Lu-Bap...</h3>
+                    <span class="album-year">1987</span>
+                </div>
+                <p class="album-desc">"Uma risada na cara da seriedade. O Cowboy Fora da Lei voltou pra dizer que ser chato é o verdadeiro crime."</p>
+                <a href="https://open.spotify.com/intl-pt/album/2bu9Le96isfDbrNrGKhYKC" target="_blank" class="btn-listen">Ouvir</a>
+            </div>
+
+            <div class="album-card">
+                <div class="album-cover-container">
+                    <img src="https://tse1.mm.bing.net/th?q=capa+album+raul+seixas+panela+do+diabo+vinil&w=500&h=500&c=7" alt="Capa A Panela do Diabo" class="album-cover">
+                </div>
+                <div class="album-header">
+                    <h3 class="album-title">A Panela do Diabo</h3>
+                    <span class="album-year">1989</span>
+                </div>
+                <p class="album-desc">"O último ato. Eu e o Marceleza mexendo o caldeirão. Eu não vim aqui pra explicar, vim pra confundir. Adeus, e toquem o rock!"</p>
+                <a href="https://open.spotify.com/intl-pt/album/5lJyJ0p9mdjHoQXfTMwxxk" target="_blank" class="btn-listen">Ouvir</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>1945 - ∞ <br> Viva a Sociedade Alternativa</p>
+    </footer>
+
+</body>
+</html>
